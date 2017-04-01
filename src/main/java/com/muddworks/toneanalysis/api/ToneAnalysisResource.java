@@ -1,6 +1,6 @@
-package com.muddworks.toneanalyzer.api;
+package com.muddworks.toneanalysis.api;
 
-import com.muddworks.toneanalyzer.domain.ToneAnalysis;
+import com.muddworks.toneanalysis.domain.ToneAnalysis;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;

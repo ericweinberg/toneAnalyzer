@@ -1,8 +1,8 @@
-package com.muddworks.toneanalyzer.api;
+package com.muddworks.toneanalysis.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.muddworks.toneanalyzer.configuration.Application;
-import com.muddworks.toneanalyzer.domain.ToneAnalysis;
+import com.muddworks.toneanalysis.configuration.Application;
+import com.muddworks.toneanalysis.domain.ToneAnalysis;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

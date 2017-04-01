@@ -1,4 +1,4 @@
-package com.muddworks.toneanalyzer.domain;
+package com.muddworks.toneanalysis.domain;
 
 import java.util.Objects;
 

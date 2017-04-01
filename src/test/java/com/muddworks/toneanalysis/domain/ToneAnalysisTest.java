@@ -1,4 +1,4 @@
-package com.muddworks.toneanalyzer.domain;
+package com.muddworks.toneanalysis.domain;
 
 import org.junit.Test;
 

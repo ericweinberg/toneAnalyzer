@@ -1,4 +1,4 @@
-package com.muddworks.toneanalyzer.api;
+package com.muddworks.toneanalysis.api;
 
 import org.junit.Test;
 
