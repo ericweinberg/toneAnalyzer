@@ -1,8 +1,8 @@
-###Overview
+### Overview
 Tool that analyzes text and returns back tone analysis on the text. It uses 
 IBM Watson's Tone Analyzer to do the analysis. 
 
-####Usage
+#### Usage
 
 The following properties need to be set in the application:
 
@@ -26,7 +26,7 @@ Post text for analysis:
     curl -X POST --header "Content-Type: application/json" -d '{"text":"This is a test"}' localhost:8080/toneAnalysis
 
 
-####Technologies used 
+#### Technologies used 
 
 * [Watson's Tone Analyzer](https://www.ibm.com/watson/developercloud/tone-analyzer.html)
 * [Gradle](https://gradle.org/)
