@@ -12,8 +12,11 @@ public class ToneAnalysisTest {
 
     @Test
     public void testConstructor() {
-        ToneAnalysis toneAnalysis = new ToneAnalysis(23.1, 423.2);
-        assertThat(toneAnalysis.getAnger(), is(23.1));
-        assertThat(toneAnalysis.getHappiness(), is(423.2));
+        ToneAnalysis toneAnalysis = ToneAnalysisFactory.createToneAnalysis();
+        assertThat(toneAnalysis.getEmotionalTone(), is(ToneAnalysisFactory.createEmotionalTone()));
+        assertThat(toneAnalysis.getLanguageTone(), is(ToneAnalysisFactory.createLanguageTone()));
+        assertThat(toneAnalysis.getSocialTone(), is(ToneAnalysisFactory.createSocialTone()));
+        assertThat(toneAnalysis.getText(), is("hello world"));
+
     }
 }

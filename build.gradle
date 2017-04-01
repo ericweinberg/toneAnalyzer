@@ -17,6 +17,8 @@ repositories {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'com.ibm.watson.developer_cloud:java-sdk:3.7.1'
+    compile 'com.ibm.watson.developer_cloud:tone-analyzer:3.7.1'
     testCompile 'junit:junit:4.12'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

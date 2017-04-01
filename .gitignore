@@ -61,3 +61,4 @@ fabric.properties
 
 !/.idea/
 /.idea/
+/application.properties

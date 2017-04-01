@@ -1,21 +1,29 @@
 package com.muddworks.toneanalysis.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.muddworks.toneanalysis.ToneAnalysisService;
 import com.muddworks.toneanalysis.configuration.Application;
 import com.muddworks.toneanalysis.domain.ToneAnalysis;
+import com.muddworks.toneanalysis.domain.ToneAnalysisFactory;
+import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
@@ -23,19 +31,33 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
-@AutoConfigureMockMvc
 public class ToneAnalysisResourceTest {
 
-    @Autowired
+    @Mock
+    private ToneAnalysisService toneAnalysisService;
+
+    @InjectMocks
+    private ToneAnalysisResource resource;
+
+    @Rule
+    public MockitoRule rule = MockitoJUnit.rule();
+
     private MockMvc mvc;
     private ObjectMapper mapper = new ObjectMapper();
 
+    @Before
+    public void setup() {
+        this.mvc = MockMvcBuilders.standaloneSetup(resource).build();
+    }
+
     @Test
     public void testCreateToneAnalysis() throws Exception {
-        ToneAnalysis expected = new ToneAnalysis(1.0, 43.3);
+        ToneAnalysis expected = ToneAnalysisFactory.createToneAnalysis();
+        when(toneAnalysisService.analyzeTone("Hello world")).thenReturn(expected);
+
         ResultActions actions = mvc.perform(MockMvcRequestBuilders.post("/toneAnalysis")
-                .content(mapper.writer().writeValueAsBytes(new ToneAnalysisRequest("Hello world")))
-                .accept(MediaType.APPLICATION_JSON))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writer().writeValueAsString(new ToneAnalysisRequest("Hello world"))))
                 .andExpect(status().isOk());
 
         String json = actions.andReturn().getResponse().getContentAsString();

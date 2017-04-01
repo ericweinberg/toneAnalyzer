@@ -1,6 +1,7 @@
 package com.muddworks.toneanalysis;
 
 import com.muddworks.toneanalysis.domain.ToneAnalysis;
+import com.muddworks.toneanalysis.domain.ToneAnalysisFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -24,10 +25,9 @@ public class ToneAnalysisServiceTest {
 
     @Test
     public void testAnalyzeTone() {
-        when(gateway.analyzeTone("Anything can go here")).thenReturn(new ToneAnalysis(1.0, 43.3));
+        ToneAnalysis toneAnalysis = ToneAnalysisFactory.createToneAnalysis();
+        when(gateway.analyzeTone("Anything can go here")).thenReturn(toneAnalysis);
         ToneAnalysis result = service.analyzeTone("Anything can go here");
-        assertThat(result.getAnger(), is(1.0));
-        assertThat(result.getHappiness(), is(43.3));
-
+        assertThat(result, is(toneAnalysis));
     }
 }

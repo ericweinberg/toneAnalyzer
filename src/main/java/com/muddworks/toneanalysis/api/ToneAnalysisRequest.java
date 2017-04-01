@@ -9,7 +9,6 @@ public class ToneAnalysisRequest {
     private String text;
 
     protected ToneAnalysisRequest() {
-
     }
 
     public ToneAnalysisRequest(String text) {
