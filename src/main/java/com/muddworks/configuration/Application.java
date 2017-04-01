@@ -1,4 +1,4 @@
-package com.muddworks.toneanalysis.configuration;
+package com.muddworks.configuration;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * <p>
  * Created on 3/31/17.
  */
-@SpringBootApplication(scanBasePackages = "com.muddworks.toneanalysis")
+@SpringBootApplication(scanBasePackages = "com.muddworks")
 public class Application {
 
     public static void main(String[] args) {

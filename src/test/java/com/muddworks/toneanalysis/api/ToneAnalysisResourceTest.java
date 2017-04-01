@@ -2,7 +2,7 @@ package com.muddworks.toneanalysis.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.muddworks.toneanalysis.ToneAnalysisService;
-import com.muddworks.toneanalysis.configuration.Application;
+import com.muddworks.configuration.Application;
 import com.muddworks.toneanalysis.domain.ToneAnalysis;
 import com.muddworks.toneanalysis.domain.ToneAnalysisFactory;
 import org.junit.Before;
