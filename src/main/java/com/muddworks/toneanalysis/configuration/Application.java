@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * The entry point into the system.
- *
+ * <p>
  * Created on 3/31/17.
  */
 @SpringBootApplication(scanBasePackages = "com.muddworks.toneanalysis")
