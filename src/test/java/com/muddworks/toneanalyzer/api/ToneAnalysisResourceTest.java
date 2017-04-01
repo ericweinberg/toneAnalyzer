@@ -34,6 +34,7 @@ public class ToneAnalysisResourceTest {
     public void testCreateToneAnalysis() throws Exception {
         ToneAnalysis expected = new ToneAnalysis(1.0, 43.3);
         ResultActions actions = mvc.perform(MockMvcRequestBuilders.post("/toneAnalysis")
+                .content(mapper.writer().writeValueAsBytes(new ToneAnalysisRequest("Hello world")))
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 

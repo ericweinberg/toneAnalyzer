@@ -1,6 +1,8 @@
 package com.muddworks.toneanalyzer.api;
 
 import com.muddworks.toneanalyzer.domain.ToneAnalysis;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ToneAnalysisResource {
 
+    private static Logger logger = LoggerFactory.getLogger(ToneAnalysisResource.class);
+
     @PostMapping
-    public ToneAnalysis createToneAnalysis() {
+    public ToneAnalysis createToneAnalysis(ToneAnalysisRequest request) {
+        logger.debug("POST: /toneAnalysis");
         return new ToneAnalysis(1.0, 43.3);
     }
 }
